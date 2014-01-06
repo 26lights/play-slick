@@ -19,9 +19,11 @@ pomExtra := (
 )
 
 publishTo <<= version { v: String =>
-  val nexus = "https://oss.sonatype.org/"
+  val nexus = "http://build.26source.org/nexus/"
   if (v.trim.endsWith("SNAPSHOT")) 
     Some("snapshots" at nexus + "content/repositories/snapshots")
   else                             
-    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+    Some("releases" at nexus + "content/repositories/releases")
 }
+
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")

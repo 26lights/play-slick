@@ -1,10 +1,16 @@
+import com.typesafe.sbt.SbtGit._
+
+versionWithGit
+
+git.baseVersion := "0.6.0"
+
+git.gitHeadCommit := git.gitHeadCommit.value.map{_.take(7)}
+
 name := "play-slick"
 
 licenses := Seq("Apache 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.html"))
 
 homepage := Some(url("https://github.com/freekh/play-slick"))
-
-version := "0.6.0-SNAPSHOT"
 
 organization := "com.typesafe.play"
 
